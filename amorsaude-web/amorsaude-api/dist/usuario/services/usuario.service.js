@@ -6,17 +6,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UsuarioModule = void 0;
+exports.UsuarioService = void 0;
 const common_1 = require("@nestjs/common");
-const usuario_service_1 = require("./services/usuario.service");
-const usuario_controller_1 = require("./controller/usuario.controller");
-let UsuarioModule = class UsuarioModule {
+let UsuarioService = class UsuarioService {
+    create(createUsuarioDto) {
+        return 'This action adds a new usuario';
+    }
+    findAll() {
+        return `This action returns all usuario`;
+    }
+    findOne(id) {
+        return `This action returns a #${id} usuario`;
+    }
+    update(id, updateUsuarioDto) {
+        return `This action updates a #${id} usuario`;
+    }
+    remove(id) {
+        return `This action removes a #${id} usuario`;
+    }
 };
-exports.UsuarioModule = UsuarioModule;
-exports.UsuarioModule = UsuarioModule = __decorate([
-    (0, common_1.Module)({
-        controllers: [usuario_controller_1.UsuarioController],
-        providers: [usuario_service_1.UsuarioService],
-    })
-], UsuarioModule);
-//# sourceMappingURL=usuario.module.js.map
+exports.UsuarioService = UsuarioService;
+exports.UsuarioService = UsuarioService = __decorate([
+    (0, common_1.Injectable)()
+], UsuarioService);
+//# sourceMappingURL=usuario.service.js.map

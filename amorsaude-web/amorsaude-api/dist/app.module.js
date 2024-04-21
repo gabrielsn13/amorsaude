@@ -12,7 +12,7 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const auth_module_1 = require("./auth/auth.module");
 const amorsaude_module_1 = require("./amorsaude/amorsaude.module");
-const usuario_module_1 = require("./usuario/usuario.module");
+const usuario_module_1 = require("./usuario/controller/usuario.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
