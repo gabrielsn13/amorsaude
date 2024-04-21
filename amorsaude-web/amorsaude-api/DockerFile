@@ -1,0 +1,27 @@
+#Specify Node Version 
+FROM node:20.12.2 AS development
+
+#Specify the working dir
+WORKDIR /Projetos/amorsaude/app
+
+COPY package*.json ./
+COPY tsconfig.build.json ./
+COPY tsconfig.json ./
+
+RUN npm ci
+RUN npm build
+
+EXPOSE 3000
+
+FROM node:20.12.2 AS production
+
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+
+WORKDIR /Projetos/amorsaude/app
+
+COPY --from=development /Projetos/amorsaude/app .
+
+EXPOSE 3000
+
+CMD [ "node", "dist/main" ]
