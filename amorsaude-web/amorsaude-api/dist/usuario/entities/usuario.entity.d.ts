@@ -1,2 +1,2 @@
-export declare class Usuario {
+export declare class AppModule {
 }
