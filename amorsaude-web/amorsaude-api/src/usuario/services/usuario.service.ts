@@ -2,6 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { CreateUsuarioDto } from '../dto/create-usuario.dto';
 import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
 
+export interface Teste{
+  titulo: string;
+}
+
 @Injectable()
 export class UsuarioService {
   create(createUsuarioDto: CreateUsuarioDto) {
@@ -13,7 +17,7 @@ export class UsuarioService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} usuario`;
+    return {titulo: `This action returns a #${id} usuario`};
   }
 
   update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
