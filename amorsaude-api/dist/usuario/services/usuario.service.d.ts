@@ -1,9 +1,14 @@
 import { CreateUsuarioDto } from '../dto/create-usuario.dto';
 import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
+export interface Teste {
+    titulo: string;
+}
 export declare class UsuarioService {
     create(createUsuarioDto: CreateUsuarioDto): string;
     findAll(): string;
-    findOne(id: number): string;
+    findOne(id: number): {
+        titulo: string;
+    };
     update(id: number, updateUsuarioDto: UpdateUsuarioDto): string;
     remove(id: number): string;
 }

@@ -6,7 +6,9 @@ export declare class UsuarioController {
     constructor(usuarioService: UsuarioService);
     create(createUsuarioDto: CreateUsuarioDto): string;
     findAll(): string;
-    findOne(id: string): string;
+    findOne(id: string): {
+        titulo: string;
+    };
     update(id: string, updateUsuarioDto: UpdateUsuarioDto): string;
     remove(id: string): string;
 }
