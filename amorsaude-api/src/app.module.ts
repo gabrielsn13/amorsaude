@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { AmorsaudeModule } from './amorsaude/amorsaude.module';
-import { UsuarioModule } from './usuario/controller/usuario.module';
+import { UsuarioModule } from './usuario/usuario.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
