@@ -29,7 +29,7 @@ export class UsuarioService {
       newUsuario.username = newUsuario.username.toLowerCase();
 
       const user = await this.usuarioRepository.save(this.usuarioRepository.create(newUsuario));
-      return this.procurarUsuario(user.id);
+      return this.procurarPorUsuario(user.id);
     }
     else{
       throw new HttpException('Email ou usuario ja criados', HttpStatus.CONFLICT);
@@ -50,7 +50,16 @@ export class UsuarioService {
     return !!usuario;
   }
 
-  private async procurarUsuario(id: number): Promise<IUsuario>{
+  async getUsuarioPorId(id: number): Promise<IUsuario> {
+    return this.usuarioRepository.findOneOrFail({
+      where: {
+        id: id,
+      },
+    });
+  }
+
+
+  private async procurarPorUsuario(id: number): Promise<IUsuario>{
     return this.usuarioRepository.findOne({
       where: {id}
     });
@@ -70,7 +79,7 @@ export class UsuarioService {
       const passwordsMatchin: boolean = await this.authService.comparePasswords(usuario.password, usuarioEncontrado.password);
 
       if(passwordsMatchin === true){
-        const payload: IUsuario = await this.procurarUsuario(usuarioEncontrado.id);
+        const payload: IUsuario = await this.procurarPorUsuario(usuarioEncontrado.id);
         return this.authService.generateJwt(payload);
       }
       else

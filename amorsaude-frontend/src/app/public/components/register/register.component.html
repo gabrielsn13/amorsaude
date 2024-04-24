@@ -15,7 +15,7 @@
           <form [formGroup]="form" (ngSubmit)="register()">
   
             <mat-form-field>
-              <input type="email" matInput placeholder="Email" formControlName="email">
+              <input type="email" matInput placeholder="Email" formControlName="email"> 
               <mat-error *ngIf="email.touched && email.hasError('required')">Email Obrigatório</mat-error>
               <mat-error *ngIf="email.touched && email.hasError('email')">Email Inválido</mat-error>
             </mat-form-field>
