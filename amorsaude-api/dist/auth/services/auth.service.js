@@ -27,7 +27,7 @@ let AuthService = class AuthService {
     async comparePasswords(password, storedPasswordHash) {
         return bcrypt.compare(password, storedPasswordHash);
     }
-    verifyJwt(jwt) {
+    async verifyJwt(jwt) {
         return this.jwtService.verifyAsync(jwt);
     }
 };
