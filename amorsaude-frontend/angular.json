@@ -75,7 +75,8 @@
               "buildTarget": "amorsaude-frontend:build:production"
             },
             "development": {
-              "buildTarget": "amorsaude-frontend:build:development"
+              "buildTarget": "amorsaude-frontend:build:development",
+              "proxyConfig": "src/proxy.config.json"
             }
           },
           "defaultConfiguration": "development"
