@@ -14,6 +14,6 @@ export class TesteService {
   constructor(private http: HttpClient) { }
 
   getUserById(id: number): Observable<any>{
-    return this.http.get<Teste>(`/api/usuario/${id}`);
+    return this.http.get<Teste>(`http://localhost:3000/api/usuario/${id}`);
   }
 }
