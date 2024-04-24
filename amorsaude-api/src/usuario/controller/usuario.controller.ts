@@ -1,34 +1,31 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { UsuarioService } from '../services/usuario.service';
+import { DtoHelperService } from '../dto/dto-helper.service';
+import { ILoginResponse, IUsuario } from '../usuario.interface';
 import { CreateUsuarioDto } from '../dto/create-usuario.dto';
-import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
+import { LoginUsuarioDto } from '../dto/login-usuario.dto';
 
 @Controller('usuario')
 export class UsuarioController {
-  constructor(private readonly usuarioService: UsuarioService) {}
-
+  constructor(private readonly usuarioService: UsuarioService,
+              private dtoHelperService: DtoHelperService
+  ) {}
+  
   @Post()
-  create(@Body() createUsuarioDto: CreateUsuarioDto) {
-    return this.usuarioService.create(createUsuarioDto);
+  async create(@Body() createUsuarioDto: CreateUsuarioDto): Promise<IUsuario> {
+    const userEntity: IUsuario = await this.dtoHelperService.createUsuarioDtoToEntity(createUsuarioDto);
+    return this.usuarioService.create(userEntity);
   }
 
-  @Get()
-  findAll() {
-    return this.usuarioService.findAll();
+  @Post('login')
+  async login(@Body() loginUsuarioDto: LoginUsuarioDto): Promise<ILoginResponse>{
+    const userEntity: IUsuario = await this.dtoHelperService.loginUserDtoToEntity(loginUsuarioDto);
+    const jwt: string = await this.usuarioService.login(userEntity);
+    return{
+      access_token: jwt,
+      token_type: 'JWT',
+      expire_in: 10000
+    }
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usuarioService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
-    return this.usuarioService.update(+id, updateUsuarioDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usuarioService.remove(+id);
-  }
 }
