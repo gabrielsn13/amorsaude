@@ -1,14 +1,18 @@
-import { CreateUsuarioDto } from '../dto/create-usuario.dto';
-import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
+import { Usuario } from '../entities/usuario.entity';
+import { Repository } from 'typeorm';
+import { AuthService } from 'src/auth/services/auth.service';
+import { IUsuario } from '../usuario.interface';
 export interface Teste {
     titulo: string;
 }
 export declare class UsuarioService {
-    create(createUsuarioDto: CreateUsuarioDto): string;
-    findAll(): string;
-    findOne(id: number): {
-        titulo: string;
-    };
-    update(id: number, updateUsuarioDto: UpdateUsuarioDto): string;
-    remove(id: number): string;
+    private readonly usuarioRepository;
+    private authService;
+    constructor(usuarioRepository: Repository<Usuario>, authService: AuthService);
+    create(newUsuario: IUsuario): Promise<IUsuario>;
+    private existeEmail;
+    private existeNomeUsuario;
+    private procurarUsuario;
+    private procurarPorEmail;
+    login(usuario: IUsuario): Promise<string>;
 }

@@ -15,26 +15,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsuarioController = void 0;
 const common_1 = require("@nestjs/common");
 const usuario_service_1 = require("../services/usuario.service");
+const dto_helper_service_1 = require("../dto/dto-helper.service");
 const create_usuario_dto_1 = require("../dto/create-usuario.dto");
-const update_usuario_dto_1 = require("../dto/update-usuario.dto");
+const login_usuario_dto_1 = require("../dto/login-usuario.dto");
 let UsuarioController = class UsuarioController {
-    constructor(usuarioService) {
+    constructor(usuarioService, dtoHelperService) {
         this.usuarioService = usuarioService;
+        this.dtoHelperService = dtoHelperService;
     }
-    create(createUsuarioDto) {
-        return this.usuarioService.create(createUsuarioDto);
+    async create(createUsuarioDto) {
+        const userEntity = await this.dtoHelperService.createUsuarioDtoToEntity(createUsuarioDto);
+        return this.usuarioService.create(userEntity);
     }
-    findAll() {
-        return this.usuarioService.findAll();
-    }
-    findOne(id) {
-        return this.usuarioService.findOne(+id);
-    }
-    update(id, updateUsuarioDto) {
-        return this.usuarioService.update(+id, updateUsuarioDto);
-    }
-    remove(id) {
-        return this.usuarioService.remove(+id);
+    async login(loginUsuarioDto) {
+        const userEntity = await this.dtoHelperService.loginUserDtoToEntity(loginUsuarioDto);
+        const jwt = await this.usuarioService.login(userEntity);
+        return {
+            access_token: jwt,
+            token_type: 'JWT',
+            expire_in: 10000
+        };
     }
 };
 exports.UsuarioController = UsuarioController;
@@ -43,38 +43,18 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_usuario_dto_1.CreateUsuarioDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsuarioController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)(),
+    (0, common_1.Post)('login'),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], UsuarioController.prototype, "findAll", null);
-__decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
-], UsuarioController.prototype, "findOne", null);
-__decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __param(1, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_usuario_dto_1.UpdateUsuarioDto]),
-    __metadata("design:returntype", void 0)
-], UsuarioController.prototype, "update", null);
-__decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
-], UsuarioController.prototype, "remove", null);
+    __metadata("design:paramtypes", [login_usuario_dto_1.LoginUsuarioDto]),
+    __metadata("design:returntype", Promise)
+], UsuarioController.prototype, "login", null);
 exports.UsuarioController = UsuarioController = __decorate([
     (0, common_1.Controller)('usuario'),
-    __metadata("design:paramtypes", [usuario_service_1.UsuarioService])
+    __metadata("design:paramtypes", [usuario_service_1.UsuarioService,
+        dto_helper_service_1.DtoHelperService])
 ], UsuarioController);
 //# sourceMappingURL=usuario.controller.js.map
