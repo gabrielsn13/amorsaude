@@ -2,12 +2,12 @@
 
     <div>
       <div class="login">
-        <a [routerLink]="['../login']">Go to login</a>
+        <a [routerLink]="['../login']">Voltar para login</a>
       </div>
   
       <mat-card>
         <mat-card-header>
-          <mat-card-title>User Registration</mat-card-title>
+          <mat-card-title>Cadastro de Usuário</mat-card-title>
         </mat-card-header>
   
         <mat-card-content>
@@ -16,30 +16,30 @@
   
             <mat-form-field>
               <input type="email" matInput placeholder="Email" formControlName="email">
-              <mat-error *ngIf="email.touched && email.hasError('required')">Email is required</mat-error>
-              <mat-error *ngIf="email.touched && email.hasError('email')">Email must be valid</mat-error>
+              <mat-error *ngIf="email.touched && email.hasError('required')">Email Obrigatório</mat-error>
+              <mat-error *ngIf="email.touched && email.hasError('email')">Email Inválido</mat-error>
             </mat-form-field>
   
             <mat-form-field>
               <input type="text" matInput placeholder="Username" formControlName="username">
-              <mat-error *ngIf="username.touched && username.hasError('required')">Username is required</mat-error>
+              <mat-error *ngIf="username.touched && username.hasError('required')">Nome de usuário é obrigatório</mat-error>
             </mat-form-field>
   
             <mat-form-field>
               <input type="password" matInput placeholder="Password" formControlName="password">
-              <mat-error *ngIf="password.touched && password.hasError('required')">Password is required</mat-error>
+              <mat-error *ngIf="password.touched && password.hasError('required')">Senha é obrigatório</mat-error>
             </mat-form-field>
   
             <mat-form-field>
               <input type="password" matInput placeholder="Password Cofnirmation" formControlName="passwordConfirm">
             </mat-form-field>
   
-            <mat-hint *ngIf="!form.valid">Please fill out all information correctly!</mat-hint>
+            <mat-hint *ngIf="!form.valid">Preencha todas as informações corretamente!</mat-hint>
   
-            <mat-error *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')">Passwords are not matching</mat-error>
+            <mat-error *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')">Senhas não coincidem</mat-error>
   
             <div class="button">
-              <button mat-button type="submit" [disabled]="!form.valid">Register</button>
+              <button mat-button type="submit" [disabled]="!form.valid">Cadastrar</button>
             </div>
   
           </form>
