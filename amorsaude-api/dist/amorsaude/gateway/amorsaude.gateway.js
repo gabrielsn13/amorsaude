@@ -43,7 +43,7 @@ let AmorsaudeGateway = class AmorsaudeGateway {
 };
 exports.AmorsaudeGateway = AmorsaudeGateway;
 exports.AmorsaudeGateway = AmorsaudeGateway = __decorate([
-    (0, websockets_1.WebSocketGateway)({ namespace: 'amorsaude' }),
+    (0, websockets_1.WebSocketGateway)({ namespace: 'amorsaude', path: "/socket.io", }),
     __metadata("design:paramtypes", [usuario_service_1.UsuarioService, auth_service_1.AuthService])
 ], AmorsaudeGateway);
 //# sourceMappingURL=amorsaude.gateway.js.map

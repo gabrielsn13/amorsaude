@@ -14,6 +14,7 @@ const amorsaude_module_1 = require("./amorsaude/amorsaude.module");
 const usuario_module_1 = require("./usuario/usuario.module");
 const typeorm_1 = require("@nestjs/typeorm");
 const auth_middleware_1 = require("./auth.middleware");
+const amorsaude_gateway_1 = require("./amorsaude/gateway/amorsaude.gateway");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
@@ -42,7 +43,8 @@ exports.AppModule = AppModule = __decorate([
             auth_module_1.AuthModule,
             amorsaude_module_1.AmorsaudeModule,
             usuario_module_1.UsuarioModule
-        ]
+        ],
+        providers: [amorsaude_gateway_1.AmorsaudeGateway]
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
