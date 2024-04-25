@@ -2,20 +2,20 @@ version: "3.8"
 
 services:
   # Angular amorsaude frontend
-  # frontend: 
-  #   build:
-  #     dockerfile: DockerFile
-  #     context: ./amorsaude-frontend
-  #     target: development
-  #   command: npm run start
-  #   volumes:
-  #     - ./amorsaude-frontend:/projetos/amorsaude/src/app
-  #     - /projetos/amorsaude/src/app/node_modules
-  #   ports:
-  #     - "4200:4200"
-  #   depends_on:
-  #     - api
-  # NestJS amorsaude api
+  frontend: 
+    build:
+      dockerfile: DockerFile
+      context: ./amorsaude-frontend
+      target: development
+    command: npm run start
+    volumes:
+      - ./amorsaude-frontend:/projetos/amorsaude/src/app
+      - /projetos/amorsaude/src/app/node_modules
+    ports:
+      - "4200:4200"
+    depends_on:
+      - api
+  #NestJS amorsaude api
   api: 
     build: 
       dockerfile: DockerFile
