@@ -21,7 +21,7 @@ export class UsuarioService {
   ) { }
 
   login(usuario: IUsuario): Observable<ILoginResponse>{
-    return this.httpClient.post<  >('http://localhost:3000/api/usuario/login', usuario).pipe(
+    return this.httpClient.post<ILoginResponse>('http://localhost:3000/api/usuario/login', usuario).pipe(
       tap((res: ILoginResponse) => localStorage.setItem('amorsaude_app', res.access_token)),
       tap(() => this.snackbar.open('Sucesso Login!', 'Close', snackBarConfig)),
       catchError(e => {
