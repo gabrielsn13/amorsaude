@@ -18,6 +18,10 @@ export class UsuarioService {
             ){
   }
 
+  teste() {
+    return 'teste api';
+  }
+
   async create(newUsuario: IUsuario): Promise<IUsuario>{
     const existeEmail: boolean = await this.existeEmail(newUsuario.email);
     const existeNomeUsuario: boolean = await this.existeNomeUsuario(newUsuario.username);

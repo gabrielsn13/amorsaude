@@ -10,6 +10,11 @@ export class UsuarioController {
   constructor(private readonly usuarioService: UsuarioService,
               private dtoHelperService: DtoHelperService
   ) {}
+
+  @Get('teste')
+  teste(){
+    return this.usuarioService.teste();
+  }
   
   @Post()
   async create(@Body() createUsuarioDto: CreateUsuarioDto): Promise<IUsuario> {
