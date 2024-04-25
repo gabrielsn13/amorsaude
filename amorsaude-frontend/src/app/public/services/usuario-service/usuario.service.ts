@@ -4,6 +4,7 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar'
 import { ILoginResponse, IUsuario } from '../../public.interface';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { LOCALSTORAGE_KEY_NESTJS_AMORSAUDE_APP } from '../../../app.module';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 export const snackBarConfig: MatSnackBarConfig = {
@@ -18,7 +19,8 @@ export class UsuarioService {
 
   constructor(
     private httpClient: HttpClient,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private jwtService: JwtHelperService
   ) { }
 
   login(usuario: IUsuario): Observable<ILoginResponse>{
@@ -41,5 +43,10 @@ export class UsuarioService {
         return throwError(e);
       })
     )
+  }
+
+  getLoggedInUser(){
+    const decodedToken = this.jwtService.decodeToken();
+    return decodedToken.usuario;
   }
 }
