@@ -19,24 +19,24 @@ import { AuthMiddleware } from './auth.middleware';
     AmorsaudeModule, 
     UsuarioModule]
 })
-export class AppModule {}//implements NestModule {
-//   configure(consumer: MiddlewareConsumer) {
-//     consumer
-//       .apply(AuthMiddleware)
-//       .exclude(
-//         {
-//           path: '/api/usuario/teste',
-//           method: RequestMethod.GET,
-//         },
-//         {
-//           path: '/api/usuario',
-//           method: RequestMethod.POST,
-//         },
-//         {
-//           path: '/api/usuario/login',
-//           method: RequestMethod.POST,
-//         },
-//       )
-//       .forRoutes('');
-//   }
-// }
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(AuthMiddleware)
+      .exclude(
+        // {
+        //   path: '/api/usuario/teste',
+        //   method: RequestMethod.GET,
+        // },
+        {
+          path: '/api/usuario',
+          method: RequestMethod.POST,
+        },
+        {
+          path: '/api/usuario/login',
+          method: RequestMethod.POST,
+        },
+      )
+      .forRoutes('');
+  }
+}
