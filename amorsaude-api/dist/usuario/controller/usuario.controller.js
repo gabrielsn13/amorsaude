@@ -23,6 +23,9 @@ let UsuarioController = class UsuarioController {
         this.usuarioService = usuarioService;
         this.dtoHelperService = dtoHelperService;
     }
+    teste() {
+        return this.usuarioService.teste();
+    }
     async create(createUsuarioDto) {
         const userEntity = await this.dtoHelperService.createUsuarioDtoToEntity(createUsuarioDto);
         return this.usuarioService.create(userEntity);
@@ -38,6 +41,12 @@ let UsuarioController = class UsuarioController {
     }
 };
 exports.UsuarioController = UsuarioController;
+__decorate([
+    (0, common_1.Get)('teste'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], UsuarioController.prototype, "teste", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),

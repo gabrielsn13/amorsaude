@@ -20,6 +20,7 @@ let AuthMiddleware = class AuthMiddleware {
     }
     async use(request, response, next) {
         try {
+            console.log('request', request);
             const tokenArray = request.headers['authorization'].split(' ');
             const decodedToken = await this.authService.verifyJwt(tokenArray[1]);
             const user = await this.userService.getUsuarioPorId(decodedToken.user.id);

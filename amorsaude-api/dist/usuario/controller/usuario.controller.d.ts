@@ -7,6 +7,7 @@ export declare class UsuarioController {
     private readonly usuarioService;
     private dtoHelperService;
     constructor(usuarioService: UsuarioService, dtoHelperService: DtoHelperService);
+    teste(): string;
     create(createUsuarioDto: CreateUsuarioDto): Promise<IUsuario>;
     login(loginUsuarioDto: LoginUsuarioDto): Promise<ILoginResponse>;
 }

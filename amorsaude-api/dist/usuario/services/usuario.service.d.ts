@@ -9,6 +9,7 @@ export declare class UsuarioService {
     private readonly usuarioRepository;
     private authService;
     constructor(usuarioRepository: Repository<Usuario>, authService: AuthService);
+    teste(): string;
     create(newUsuario: IUsuario): Promise<IUsuario>;
     private existeEmail;
     private existeNomeUsuario;

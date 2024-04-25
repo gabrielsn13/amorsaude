@@ -23,6 +23,9 @@ let UsuarioService = class UsuarioService {
         this.usuarioRepository = usuarioRepository;
         this.authService = authService;
     }
+    teste() {
+        return 'teste api';
+    }
     async create(newUsuario) {
         const existeEmail = await this.existeEmail(newUsuario.email);
         const existeNomeUsuario = await this.existeNomeUsuario(newUsuario.username);
