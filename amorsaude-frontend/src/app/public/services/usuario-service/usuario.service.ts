@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar'
 import { ILoginResponse, IUsuario } from '../../public.interface';
 import { Observable, catchError, tap, throwError } from 'rxjs';
+import { LOCALSTORAGE_KEY_NESTJS_AMORSAUDE_APP } from '../../../app.module';
 
 
 export const snackBarConfig: MatSnackBarConfig = {
@@ -22,7 +23,7 @@ export class UsuarioService {
 
   login(usuario: IUsuario): Observable<ILoginResponse>{
     return this.httpClient.post<ILoginResponse>('http://localhost:3000/api/usuario/login', usuario).pipe(
-      tap((res: ILoginResponse) => localStorage.setItem('amorsaude_app', res.access_token)),
+      tap((res: ILoginResponse) => localStorage.setItem(LOCALSTORAGE_KEY_NESTJS_AMORSAUDE_APP, res.access_token)),
       tap(() => this.snackbar.open('Sucesso Login!', 'Close', snackBarConfig)),
       catchError(e => {
         this.snackbar.open(`${e.error.message}`, 'Close', snackBarConfig);
