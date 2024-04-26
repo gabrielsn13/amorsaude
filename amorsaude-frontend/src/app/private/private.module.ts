@@ -6,12 +6,13 @@ import { MenuComponent } from './components/menu/menu.component';
 
 
 @NgModule({
-  declarations: [
-    MenuComponent
-  ],
+//declarations: [MenuComponent],
   imports: [
     CommonModule,
     PrivateRoutingModule
-  ]
+  ],
+declarations: [
+  MenuComponent
+]
 })
 export class PrivateModule { }
