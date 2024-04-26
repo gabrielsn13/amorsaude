@@ -23,7 +23,7 @@ export class LoginComponent {
         email: this.email.value,
         password: this.password.value
       }).pipe(
-        tap(() => this.router.navigate(['../../private/lista-usuarios']))
+        tap(() => this.router.navigate(['../../private/menu']))
       ).subscribe();
     }
   }
