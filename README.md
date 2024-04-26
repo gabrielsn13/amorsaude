@@ -7,5 +7,5 @@
 ## Considerações finais
 1. Vale ressaltar, o projeto não está completo, então disponibilizei somente as funcionalidades que consegui validar e testar como: autenticação, login e cadastro de usuário bem
     como suas respectivas validações de usuário e senha.
-
-2. O token é gerado por JWT e armazenado no localstorage do navegador. Para valida-lo 
+2. O token é gerado por JWT. O login do usuário é armazenado no localstorage do navegador. 
+3. Para o token basta acessar https://token.dev/
