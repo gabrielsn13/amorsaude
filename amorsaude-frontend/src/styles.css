@@ -2,3 +2,18 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.expanded-toolbar {
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
+}

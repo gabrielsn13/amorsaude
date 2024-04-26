@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
+  public title = 'Amorsaude Web';
+  public isAuthenticated: boolean;
 
+  constructor() {
+    this.isAuthenticated = false;
+  }
+
+  login() {
+  }
+
+  logout() {
+  }
 }
