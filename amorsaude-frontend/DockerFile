@@ -1,5 +1,5 @@
 #build
-FROM node:18.18.0 AS development
+FROM node:20.12.2 AS development
 
 WORKDIR /projetos/frontend/src/app
 
@@ -8,6 +8,6 @@ COPY package*.json ./
 COPY . .
 
 RUN npm install
-RUN npm run build
+RUN npm build
 
 EXPOSE 4200

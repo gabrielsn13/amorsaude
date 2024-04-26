@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashbordComponent } from './components/dashbord/dashbord.component';
 import { PrivateRoutingModule } from './private-routing.module';
+import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
 
 
 
 @NgModule({
   declarations: [
-    DashbordComponent
+    ListaUsuariosComponent
   ],
   imports: [
     CommonModule,

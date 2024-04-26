@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { DashbordComponent } from "./components/dashbord/dashbord.component";
+import { ListaUsuariosComponent } from "./components/lista-usuarios/lista-usuarios.component";
 
 export const routes: Routes = [{
-    path: 'dashboard',
-    component: DashbordComponent
+    path: 'lista-usuarios',
+    component: ListaUsuariosComponent
 },
 {
     path: '**',
