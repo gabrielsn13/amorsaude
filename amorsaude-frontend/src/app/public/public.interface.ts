@@ -10,3 +10,10 @@ export interface ILoginResponse {
     token_Type: string;
     expires_in: number;
 }
+
+export interface IProduto{
+  id?: number;
+  email?: string;
+  username?: string;
+  password?: string;
+}
