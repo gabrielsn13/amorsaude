@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { CreateProdutoDto } from './dto/create-produto.dto';
-import { UpdateProdutoDto } from './dto/update-produto.dto';
+import { CreateProdutoDto } from '../dto/create-produto.dto';
+import { UpdateProdutoDto } from '../dto/update-produto.dto';
 import { Repository } from 'typeorm';
-import { Produto } from './entities/produto.entity';
+import { Produto } from '../entities/produto.entity';
 import { AuthService } from 'src/auth/services/auth.service';
 import { InjectRepository } from '@nestjs/typeorm';
 
