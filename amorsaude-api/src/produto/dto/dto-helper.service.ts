@@ -1,17 +1,16 @@
 import { Injectable } from "@nestjs/common";
-import { IProduto } from "../produto.interface";
-import { CreateProdutoDto } from "./create-produto.dto";
+import { IEmpresa } from "../produto.interface";
+import { CreateEmpresaDto } from "./create-empresa.dto";
 
 @Injectable()
 export class DtoHelperService {
 
-    createProdutoDtoToEntity(createProdutoDto: CreateProdutoDto): IProduto{
+    createProdutoDtoToEntity(createProdutoDto: CreateEmpresaDto): IEmpresa{
         return {
-            name: createProdutoDto.name,
-            sku: createProdutoDto.sku,
-            description: createProdutoDto.description,
-            price: createProdutoDto.price,
-            stock: createProdutoDto.stock
+            razaoSocial: createProdutoDto.razaoSocial,
+            nomeFantasia: createProdutoDto.nomeFantasia,
+            cnpj: createProdutoDto.cnpj,
+            regional: createProdutoDto.regional
         }
     }
 }

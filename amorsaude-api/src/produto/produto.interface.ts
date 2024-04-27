@@ -1,8 +1,7 @@
-export interface IProduto {
+export interface IEmpresa {
     id?: number;
-    name?: string;
-    sku?: string;
-    description?: string;
-    price?: number;
-    stock?: number;
+    razaoSocial?: string;
+    nomeFantasia?: string;
+    cnpj?: string;
+    regional?: number;
 };
