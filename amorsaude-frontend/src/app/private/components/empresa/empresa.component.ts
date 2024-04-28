@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Empresa } from '../../../models/empresa.model';
 import { EmpresaService } from '../../../services/empresa.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-empresa',
@@ -8,8 +9,9 @@ import { EmpresaService } from '../../../services/empresa.service';
   styleUrl: './empresa.component.css'
 })
 export class EmpresaComponent {
-
-  selectedProduct: Empresa = new Empresa();
+  displayedColumns: string[] = ['name', 'sku', 'description', 'price', 'stock', 'edit', 'delete'];
+  dataSource = new MatTableDataSource<any>();
+  empresaSelecionada: Empresa = new Empresa();
   loading = false;
   
   constructor(public empresaService: EmpresaService) {
@@ -27,11 +29,17 @@ export class EmpresaComponent {
   }
 
   editProduct(product: Empresa) {
-    this.selectedProduct = product;
+    this.empresaSelecionada = product;
   }
 
+  updateProduct(product: Empresa) {
+    // console.log('updateProduct ' + JSON.stringify(product));
+    // return this.request('post', `${baseUrl}/product/${product.id}`, product);
+  }
+
+
   clearProduct() {
-    this.selectedProduct = new Empresa();
+    this.empresaSelecionada = new Empresa();
   }
 
   async deleteProduct(product: Empresa) {

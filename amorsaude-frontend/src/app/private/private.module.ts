@@ -8,6 +8,9 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
 import { EmpresaComponent } from './components/empresa/empresa.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDividerModule } from '@angular/material/divider'
+import { FormsModule } from '@angular/forms';
 @NgModule({
 //declarations: [MenuComponent],
   imports: [
@@ -17,7 +20,10 @@ import { EmpresaComponent } from './components/empresa/empresa.component';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatDividerModule,
+    FormsModule
   ],
 declarations: [
   MenuComponent,

@@ -1,4 +1,4 @@
-h1 class="h1">Product Inventory</h1>
+<h1 class="h1">Product Inventory</h1>
 <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="products">
   <table mat-table fxFlex="100%" fxFlex.gt-sm="66%" [dataSource]="dataSource" class="mat-elevation-z1">
     <ng-container matColumnDef="id">
@@ -44,21 +44,18 @@ h1 class="h1">Product Inventory</h1>
   <div>
     <h2>Selected Product</h2>
     <label>Name
-      <input type="text" [(ngModel)]="selectedProduct.name">
+      <input type="text" [(ngModel)]="empresaSelecionada.razaoSocial">
     </label>
     <label>SKU
-      <input type="text" [(ngModel)]="selectedProduct.sku">
+      <input type="text" [(ngModel)]="empresaSelecionada.nomeFantasia">
     </label>
     <label>Description
-      <input type="text" [(ngModel)]="selectedProduct.description">
+      <input type="text" [(ngModel)]="empresaSelecionada.cnpj">
     </label>
     <label>Price
-      <input type="text" [(ngModel)]="selectedProduct.price">
+      <input type="number" [(ngModel)]="empresaSelecionada.regional">
     </label>
-    <label>Stock Level
-      <input type="text" [(ngModel)]="selectedProduct.stock">
-    </label>
-    <button mat-flat-button color="primary" (click)="updateProduct()">{{(selectedProduct.id!==undefined)?'Update':'Create'}}</button>
+    <button mat-flat-button color="primary" (click)="updateProduct(empresaSelecionada)">{{(empresaSelecionada.id!==undefined)?'Update':'Create'}}</button>
     <button mat-flat-button color="primary" (click)="clearProduct()">Clear</button>
   </div>
   <div class="loading" *ngIf="loading">
