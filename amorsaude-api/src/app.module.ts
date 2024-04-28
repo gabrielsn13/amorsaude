@@ -5,7 +5,7 @@ import { AmorsaudeModule } from './amorsaude/amorsaude.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthMiddleware } from './auth.middleware';
-import { ProdutoModule } from './produto/produto.module';
+import { ProdutoModule } from './produto/empresa.module';
 
 @Module({
   imports: [

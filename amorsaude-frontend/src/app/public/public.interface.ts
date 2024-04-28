@@ -17,3 +17,10 @@ export interface IProduto{
   username?: string;
   password?: string;
 }
+
+export interface IEmpresa{
+  id?: number;
+  email?: string;
+  username?: string;
+  password?: string;
+}

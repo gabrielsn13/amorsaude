@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { IEmpresa } from "../produto.interface";
+import { IEmpresa } from "../empresa.interface";
 import { CreateEmpresaDto } from "./create-empresa.dto";
 
 @Injectable()

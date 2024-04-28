@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { EmpresaService } from '../services/empresa.service';
 import { CreateEmpresaDto } from '../dto/create-empresa.dto';
 import { UpdateEmpresaDto } from '../dto/update-empresa.dto';
-import { IEmpresa } from '../produto.interface';
+import { IEmpresa } from '../empresa.interface';
 import { DtoHelperService } from 'src/produto/dto/dto-helper.service';
 
 @Controller('empresa')
