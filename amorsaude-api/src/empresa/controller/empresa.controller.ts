@@ -3,7 +3,7 @@ import { EmpresaService } from '../services/empresa.service';
 import { CreateEmpresaDto } from '../dto/create-empresa.dto';
 import { UpdateEmpresaDto } from '../dto/update-empresa.dto';
 import { IEmpresa } from '../empresa.interface';
-import { DtoHelperService } from 'src/produto/dto/dto-helper.service';
+import { DtoHelperService } from 'src/empresa/dto/dto-helper.service';
 
 @Controller('empresa')
 export class EmpresaController {

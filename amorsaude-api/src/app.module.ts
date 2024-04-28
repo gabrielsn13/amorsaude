@@ -5,7 +5,7 @@ import { AmorsaudeModule } from './amorsaude/amorsaude.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthMiddleware } from './auth.middleware';
-import { ProdutoModule } from './produto/empresa.module';
+import { EmpresaModule } from './empresa/empresa.module';
 
 @Module({
   imports: [
@@ -18,7 +18,8 @@ import { ProdutoModule } from './produto/empresa.module';
     }),
     AuthModule, 
     AmorsaudeModule, 
-    UsuarioModule, ProdutoModule]
+    UsuarioModule, 
+    EmpresaModule]
 })
 export class AppModule {} //implements NestModule {
 //   configure(consumer: MiddlewareConsumer) {

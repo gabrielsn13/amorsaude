@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IEmpresa } from '../public/public.interface';
+import { IEmpresa } from '../../public/public.interface';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

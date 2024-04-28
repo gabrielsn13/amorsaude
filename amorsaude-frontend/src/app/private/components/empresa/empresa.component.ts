@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Empresa } from '../../../models/empresa.model';
-import { EmpresaService } from '../../../services/empresa.service';
+import { EmpresaService } from '../../services/empresa.service';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -34,7 +34,7 @@ export class EmpresaComponent {
 
   updateProduct(product: Empresa) {
     // console.log('updateProduct ' + JSON.stringify(product));
-    // return this.request('post', `${baseUrl}/product/${product.id}`, product);
+    // return this.request('post', `${baseUrl}/product/${product.id}`, product);EmpresaRepository
   }
 
 
