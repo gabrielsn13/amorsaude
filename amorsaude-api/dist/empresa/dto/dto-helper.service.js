@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DtoHelperService = void 0;
 const common_1 = require("@nestjs/common");
 let DtoHelperService = class DtoHelperService {
-    createProdutoDtoToEntity(createProdutoDto) {
+    createEmpresaDtoToEntity(createProdutoDto) {
         return {
             razaoSocial: createProdutoDto.razaoSocial,
             nomeFantasia: createProdutoDto.nomeFantasia,

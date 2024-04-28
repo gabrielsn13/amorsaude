@@ -5,7 +5,7 @@ import { CreateEmpresaDto } from "./create-empresa.dto";
 @Injectable()
 export class DtoHelperService {
 
-    createProdutoDtoToEntity(createProdutoDto: CreateEmpresaDto): IEmpresa{
+    createEmpresaDtoToEntity(createProdutoDto: CreateEmpresaDto): IEmpresa{
         return {
             razaoSocial: createProdutoDto.razaoSocial,
             nomeFantasia: createProdutoDto.nomeFantasia,

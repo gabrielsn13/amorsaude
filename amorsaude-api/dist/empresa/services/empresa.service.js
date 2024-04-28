@@ -25,7 +25,7 @@ let EmpresaService = class EmpresaService {
         return 'This action adds a new produto';
     }
     findAll() {
-        return `This action returns all produto`;
+        return this.empresaRepository.find({});
     }
     findOne(id) {
         return `This action returns a #${id} produto`;

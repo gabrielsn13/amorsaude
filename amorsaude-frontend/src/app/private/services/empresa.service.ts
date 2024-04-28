@@ -36,6 +36,7 @@ export class EmpresaService {
   }
 
   cadastrarEmpresa(empresa: IEmpresa): Observable<IEmpresa>{
+    console.log('teste salvar')
     return this.httpClient.post<IEmpresa>('http://localhost:3000/api/empresa', empresa).pipe(
       tap((empresaCriada: IEmpresa) => this.snackbar.open(`Usuario ${empresaCriada.username} foi criado com sucesso!`, 'Close', snackBarConfig)),
       catchError(e => {

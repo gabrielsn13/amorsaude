@@ -24,7 +24,7 @@ let EmpresaController = class EmpresaController {
         this.dtoHelperService = dtoHelperService;
     }
     async create(createEmpresaDto) {
-        const produtoEntity = await this.dtoHelperService.createProdutoDtoToEntity(createEmpresaDto);
+        const produtoEntity = await this.dtoHelperService.createEmpresaDtoToEntity(createEmpresaDto);
         return this.empresaService.create(produtoEntity);
     }
     findAll() {

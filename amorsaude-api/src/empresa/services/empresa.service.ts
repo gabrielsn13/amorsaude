@@ -18,7 +18,7 @@ export class EmpresaService {
   }
 
   findAll() {
-    return `This action returns all produto`;
+    return this.empresaRepository.find({});
   }
 
   findOne(id: number) {

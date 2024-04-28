@@ -7,7 +7,7 @@ export declare class EmpresaController {
     private dtoHelperService;
     constructor(empresaService: EmpresaService, dtoHelperService: DtoHelperService);
     create(createEmpresaDto: CreateEmpresaDto): Promise<string>;
-    findAll(): string;
+    findAll(): Promise<import("../entities/empresa.entity").Empresa[]>;
     findOne(id: string): string;
     update(id: string, updateProdutoDto: UpdateEmpresaDto): string;
     remove(id: string): string;

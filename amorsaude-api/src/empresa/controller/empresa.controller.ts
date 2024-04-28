@@ -13,7 +13,8 @@ export class EmpresaController {
 
   @Post()
   async create(@Body() createEmpresaDto: CreateEmpresaDto) {
-    const produtoEntity: IEmpresa = await this.dtoHelperService.createProdutoDtoToEntity(createEmpresaDto);
+    console.log('createEmpresaDto', createEmpresaDto);
+    const produtoEntity: IEmpresa = await this.dtoHelperService.createEmpresaDtoToEntity(createEmpresaDto);
     return this.empresaService.create(produtoEntity);
   }
 
