@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Empresa } from '../../../models/empresa.model';
 import { EmpresaService } from '../../services/empresa.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { IEmpresa } from '../../../public/public.interface';
 
 @Component({
   selector: 'app-empresa',
@@ -9,8 +10,8 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrl: './empresa.component.css'
 })
 export class EmpresaComponent {
-  displayedColumns: string[] = ['name', 'sku', 'description', 'price', 'stock', 'edit', 'delete'];
-  dataSource = new MatTableDataSource<any>();
+  displayedColumns: string[] = ['id', 'razaoSocial', 'razaoSocial', 'cnpj', 'regional', 'edit', 'delete'];
+  dataSource = new MatTableDataSource<IEmpresa>();
   empresaSelecionada: Empresa = new Empresa();
   loading = false;
   
@@ -23,18 +24,24 @@ export class EmpresaComponent {
 
   async refresh() {
     this.loading = true;
-    const data = await this.empresaService.getEmpresas();
-    //this.dataSource.data = data;
+    const data = await this.empresaService.getEmpresas().subscribe(empresas => {
+      this.dataSource.data = empresas;
+    });
     this.loading = false;
   }
 
-  editProduct(product: Empresa) {
-    this.empresaSelecionada = product;
+  editProduct(empresa: Empresa) {
+    this.empresaSelecionada = empresa;
   }
 
-  updateProduct(product: Empresa) {
-    // console.log('updateProduct ' + JSON.stringify(product));
-    // return this.request('post', `${baseUrl}/product/${product.id}`, product);EmpresaRepository
+  async updateProduct(product: Empresa) {
+    if (this.empresaSelecionada.id !== undefined) {
+      await this.empresaService.atualizarEmpresa(this.empresaSelecionada);
+    } else {
+      await this.empresaService.cadastrarEmpresa(this.empresaSelecionada);
+    }
+    this.empresaSelecionada = new Empresa();
+    await this.refresh();
   }
 
 

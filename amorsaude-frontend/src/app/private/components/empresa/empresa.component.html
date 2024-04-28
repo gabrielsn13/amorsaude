@@ -1,4 +1,4 @@
-<h1 class="h1">Product Inventory</h1>
+<h1 class="h1">Empresas Cadastradas</h1>
 <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="products">
   <table mat-table fxFlex="100%" fxFlex.gt-sm="66%" [dataSource]="dataSource" class="mat-elevation-z1">
     <ng-container matColumnDef="id">
@@ -42,21 +42,21 @@
   </table>
   <mat-divider fxShow="false" fxShow.gt-sm [vertical]="true"></mat-divider>
   <div>
-    <h2>Selected Product</h2>
-    <label>Name
+    <h2>Empresas</h2>
+    <label>Razao Social
       <input type="text" [(ngModel)]="empresaSelecionada.razaoSocial">
     </label>
-    <label>SKU
+    <label>Nome Fantasia
       <input type="text" [(ngModel)]="empresaSelecionada.nomeFantasia">
     </label>
-    <label>Description
+    <label>CNPJ
       <input type="text" [(ngModel)]="empresaSelecionada.cnpj">
     </label>
-    <label>Price
+    <label>Regional
       <input type="number" [(ngModel)]="empresaSelecionada.regional">
     </label>
-    <button mat-flat-button color="primary" (click)="updateProduct(empresaSelecionada)">{{(empresaSelecionada.id!==undefined)?'Update':'Create'}}</button>
-    <button mat-flat-button color="primary" (click)="clearProduct()">Clear</button>
+    <button mat-flat-button color="primary" (click)="updateProduct(empresaSelecionada)">{{(empresaSelecionada.id!==undefined)?'Update':'Salvar'}}</button>
+    <button mat-flat-button color="primary" (click)="clearProduct()">Limpar</button>
   </div>
   <div class="loading" *ngIf="loading">
     <mat-spinner></mat-spinner>

@@ -10,13 +10,20 @@ exports.EmpresaModule = void 0;
 const common_1 = require("@nestjs/common");
 const empresa_service_1 = require("./services/empresa.service");
 const empresa_controller_1 = require("./controller/empresa.controller");
+const dto_helper_service_1 = require("./dto/dto-helper.service");
+const typeorm_1 = require("@nestjs/typeorm");
+const empresa_entity_1 = require("./entities/empresa.entity");
 let EmpresaModule = class EmpresaModule {
 };
 exports.EmpresaModule = EmpresaModule;
 exports.EmpresaModule = EmpresaModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            typeorm_1.TypeOrmModule.forFeature([empresa_entity_1.Empresa])
+        ],
         controllers: [empresa_controller_1.EmpresaController],
-        providers: [empresa_service_1.EmpresaService],
+        providers: [empresa_service_1.EmpresaService, dto_helper_service_1.DtoHelperService],
+        exports: [empresa_service_1.EmpresaService]
     })
 ], EmpresaModule);
 //# sourceMappingURL=empresa.module.js.map
