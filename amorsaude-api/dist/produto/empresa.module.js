@@ -15,8 +15,8 @@ let ProdutoModule = class ProdutoModule {
 exports.ProdutoModule = ProdutoModule;
 exports.ProdutoModule = ProdutoModule = __decorate([
     (0, common_1.Module)({
-        controllers: [empresa_controller_1.ProdutoController],
-        providers: [empresa_service_1.ProdutoService],
+        controllers: [empresa_controller_1.EmpresaController],
+        providers: [empresa_service_1.EmpresaService],
     })
 ], ProdutoModule);
 //# sourceMappingURL=empresa.module.js.map
