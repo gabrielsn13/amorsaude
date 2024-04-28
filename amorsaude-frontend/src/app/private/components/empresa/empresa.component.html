@@ -1,38 +1,38 @@
-<h1 class="h1">Empresas Cadastradas</h1>
+<h1 class="h1">Empresas</h1>
 <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="products">
   <table mat-table fxFlex="100%" fxFlex.gt-sm="66%" [dataSource]="dataSource" class="mat-elevation-z1">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> id</th>
-      <td mat-cell *matCellDef="let product"> {{product.id}}</td>
+      <td mat-cell *matCellDef="let empresa"> {{empresa.id}}</td>
     </ng-container>
     <ng-container matColumnDef="razaoSocial">
       <th mat-header-cell *matHeaderCellDef> razaoSocial</th>
-      <td mat-cell *matCellDef="let product"> {{product.razaoSocial}}</td>
+      <td mat-cell *matCellDef="let empresa"> {{empresa.razaoSocial}}</td>
     </ng-container>
     <ng-container matColumnDef="nomeFantasia">
       <th mat-header-cell *matHeaderCellDef> nomeFantasia</th>
-      <td mat-cell *matCellDef="let product"> {{product.nomeFantasia}}</td>
+      <td mat-cell *matCellDef="let empresa"> {{empresa.nomeFantasia}}</td>
     </ng-container>
     <ng-container matColumnDef="cnpj">
       <th mat-header-cell *matHeaderCellDef> cnpj</th>
-      <td mat-cell *matCellDef="let product"> {{product.cnpj}}</td>
+      <td mat-cell *matCellDef="let empresa"> {{empresa.cnpj}}</td>
     </ng-container>
     <ng-container matColumnDef="regional">
       <th mat-header-cell *matHeaderCellDef> regional</th>
-      <td mat-cell *matCellDef="let product"> {{product.regional}}</td>
+      <td mat-cell *matCellDef="let empresa"> {{empresa.regional}}</td>
     </ng-container>
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let product">
-        <button mat-icon-button (click)="editProduct(product)">
+      <td mat-cell *matCellDef="let empresa">
+        <button mat-icon-button (click)="editar(empresa)">
           <mat-icon>edit</mat-icon>
         </button>
       </td>
     </ng-container>
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let product">
-        <button mat-icon-button (click)="deleteProduct(product)">
+      <td mat-cell *matCellDef="let empresa">
+        <button mat-icon-button (click)="deletar(empresa)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
@@ -55,8 +55,8 @@
     <label>Regional
       <input type="number" [(ngModel)]="empresaSelecionada.regional">
     </label>
-    <button mat-flat-button color="primary" (click)="updateProduct(empresaSelecionada)">{{(empresaSelecionada.id!==undefined)?'Update':'Salvar'}}</button>
-    <button mat-flat-button color="primary" (click)="clearProduct()">Limpar</button>
+    <button mat-flat-button color="primary" (click)="update()">{{(empresaSelecionada.id!==undefined)?'Update':'Salvar'}}</button>
+    <button mat-flat-button color="primary" (click)="Limpar()">Limpar</button>
   </div>
   <div class="loading" *ngIf="loading">
     <mat-spinner></mat-spinner>

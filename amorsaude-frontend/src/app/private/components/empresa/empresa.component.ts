@@ -30,11 +30,11 @@ export class EmpresaComponent {
     this.loading = false;
   }
 
-  editProduct(empresa: Empresa) {
+  editar(empresa: Empresa) {
     this.empresaSelecionada = empresa;
   }
 
-  async updateProduct(product: Empresa) {
+  async update() {
     if (this.empresaSelecionada.id !== undefined) {
       await this.empresaService.atualizarEmpresa(this.empresaSelecionada);
     } else {
@@ -45,11 +45,11 @@ export class EmpresaComponent {
   }
 
 
-  clearProduct() {
+  Limpar() {
     this.empresaSelecionada = new Empresa();
   }
 
-  async deleteProduct(product: Empresa) {
+  async deletar(product: Empresa) {
     this.loading = true;
     // if (confirm(`Are you sure you want to delete the product ${product.name}. This cannot be undone.`)) {
     //   await this.productService.deleteProduct(product.id);
