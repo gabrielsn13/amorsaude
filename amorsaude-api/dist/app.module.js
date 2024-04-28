@@ -13,7 +13,7 @@ const auth_module_1 = require("./auth/auth.module");
 const amorsaude_module_1 = require("./amorsaude/amorsaude.module");
 const usuario_module_1 = require("./usuario/usuario.module");
 const typeorm_1 = require("@nestjs/typeorm");
-const empresa_module_1 = require("./produto/empresa.module");
+const empresa_module_1 = require("./empresa/empresa.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -29,7 +29,8 @@ exports.AppModule = AppModule = __decorate([
             }),
             auth_module_1.AuthModule,
             amorsaude_module_1.AmorsaudeModule,
-            usuario_module_1.UsuarioModule, empresa_module_1.ProdutoModule
+            usuario_module_1.UsuarioModule,
+            empresa_module_1.EmpresaModule
         ]
     })
 ], AppModule);
