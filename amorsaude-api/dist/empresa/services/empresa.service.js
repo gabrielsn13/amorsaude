@@ -21,20 +21,30 @@ let EmpresaService = class EmpresaService {
     constructor(empresaRepository) {
         this.empresaRepository = empresaRepository;
     }
-    async create(empresa) {
-        await this.empresaRepository.save(this.empresaRepository.create(empresa));
+    async create(createEmpresaDto) {
+        const empresa = this.empresaRepository.create(createEmpresaDto);
+        return await this.empresaRepository.save(empresa);
     }
     async findAll() {
         return await this.empresaRepository.find();
     }
-    findOne(id) {
-        return `This action returns a #${id} produto`;
+    async findOne(id) {
+        return await this.empresaRepository.findOne({ where: { id } });
     }
-    update(id, empresa) {
-        return `This action updates a #${id} produto`;
+    async update(id, empresa) {
+        const emp = await this.findOne(id);
+        if (!emp) {
+            throw new common_1.NotFoundException();
+        }
+        Object.assign(emp, empresa);
+        return await this.empresaRepository.save(emp);
     }
-    remove(id) {
-        return `This action removes a #${id} produto`;
+    async remove(id) {
+        const emp = await this.findOne(id);
+        if (!emp) {
+            throw new common_1.NotFoundException();
+        }
+        return await this.empresaRepository.remove(emp);
     }
 };
 exports.EmpresaService = EmpresaService;

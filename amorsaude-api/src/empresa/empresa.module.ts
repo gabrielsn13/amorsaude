@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { EmpresaService } from './services/empresa.service';
 import { EmpresaController } from './controller/empresa.controller';
-import { DtoHelperService } from './dto/dto-helper.service';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Empresa } from './entities/empresa.entity';
 
@@ -10,7 +9,7 @@ import { Empresa } from './entities/empresa.entity';
     TypeOrmModule.forFeature([Empresa])
 ],
   controllers: [EmpresaController],
-  providers: [EmpresaService, DtoHelperService],
+  providers: [EmpresaService],
   exports: [EmpresaService]
 })
 export class EmpresaModule {}

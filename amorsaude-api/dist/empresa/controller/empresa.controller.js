@@ -17,15 +17,12 @@ const common_1 = require("@nestjs/common");
 const empresa_service_1 = require("../services/empresa.service");
 const create_empresa_dto_1 = require("../dto/create-empresa.dto");
 const update_empresa_dto_1 = require("../dto/update-empresa.dto");
-const dto_helper_service_1 = require("../dto/dto-helper.service");
 let EmpresaController = class EmpresaController {
-    constructor(empresaService, dtoHelperService) {
+    constructor(empresaService) {
         this.empresaService = empresaService;
-        this.dtoHelperService = dtoHelperService;
     }
     async create(createEmpresaDto) {
-        const produtoEntity = await this.dtoHelperService.createEmpresaDtoToEntity(createEmpresaDto);
-        return this.empresaService.create(produtoEntity);
+        return this.empresaService.create(createEmpresaDto);
     }
     findAll() {
         return this.empresaService.findAll();
@@ -78,7 +75,6 @@ __decorate([
 ], EmpresaController.prototype, "remove", null);
 exports.EmpresaController = EmpresaController = __decorate([
     (0, common_1.Controller)('empresa'),
-    __metadata("design:paramtypes", [empresa_service_1.EmpresaService,
-        dto_helper_service_1.DtoHelperService])
+    __metadata("design:paramtypes", [empresa_service_1.EmpresaService])
 ], EmpresaController);
 //# sourceMappingURL=empresa.controller.js.map

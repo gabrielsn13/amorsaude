@@ -3,18 +3,15 @@ import { EmpresaService } from '../services/empresa.service';
 import { CreateEmpresaDto } from '../dto/create-empresa.dto';
 import { UpdateEmpresaDto } from '../dto/update-empresa.dto';
 import { IEmpresa } from '../empresa.interface';
-import { DtoHelperService } from 'src/empresa/dto/dto-helper.service';
 
 @Controller('empresa')
 export class EmpresaController {
-  constructor(private readonly empresaService: EmpresaService,
-              private dtoHelperService: DtoHelperService
+  constructor(private readonly empresaService: EmpresaService
   ) {}
 
   @Post()
   async create(@Body() createEmpresaDto: CreateEmpresaDto) {
-    const empresaEntity: IEmpresa = await this.dtoHelperService.createEmpresaDtoToEntity(createEmpresaDto);
-    return this.empresaService.create(empresaEntity);
+    return this.empresaService.create(createEmpresaDto);
   }
 
   @Get()

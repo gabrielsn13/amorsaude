@@ -13,8 +13,21 @@ const auth_module_1 = require("./auth/auth.module");
 const amorsaude_module_1 = require("./amorsaude/amorsaude.module");
 const usuario_module_1 = require("./usuario/usuario.module");
 const typeorm_1 = require("@nestjs/typeorm");
+const auth_middleware_1 = require("./auth.middleware");
 const empresa_module_1 = require("./empresa/empresa.module");
 let AppModule = class AppModule {
+    configure(consumer) {
+        consumer
+            .apply(auth_middleware_1.AuthMiddleware)
+            .exclude({
+            path: '/api/usuario',
+            method: common_1.RequestMethod.POST,
+        }, {
+            path: '/api/usuario/login',
+            method: common_1.RequestMethod.POST,
+        })
+            .forRoutes('');
+    }
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([

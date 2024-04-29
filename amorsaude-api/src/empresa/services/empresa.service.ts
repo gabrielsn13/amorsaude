@@ -14,7 +14,7 @@ export class EmpresaService {
   ){
   }
 
-  async create(createEmpresaDto: IEmpresa) {
+  async create(createEmpresaDto: CreateEmpresaDto) {
     const empresa = this.empresaRepository.create(createEmpresaDto);
 
     return await this.empresaRepository.save(empresa);
@@ -28,7 +28,7 @@ export class EmpresaService {
     return await this.empresaRepository.findOne({ where: { id }});
   }
 
-  async update(id: number, empresa: IEmpresa) {
+  async update(id: number, empresa: UpdateEmpresaDto) {
     const emp = await this.findOne(id)
 
     if(!emp){

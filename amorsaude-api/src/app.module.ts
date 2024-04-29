@@ -6,6 +6,8 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthMiddleware } from './auth.middleware';
 import { EmpresaModule } from './empresa/empresa.module';
+import { EmpresaController } from './empresa/controller/empresa.controller';
+import { EmpresaService } from './empresa/services/empresa.service';
 
 @Module({
   imports: [
@@ -21,24 +23,24 @@ import { EmpresaModule } from './empresa/empresa.module';
     UsuarioModule, 
     EmpresaModule]
 })
-export class AppModule {} //implements NestModule {
-//   configure(consumer: MiddlewareConsumer) {
-//     consumer
-//       .apply(AuthMiddleware)
-//       .exclude(
-//         // {
-//         //   path: '/api/usuario/teste',
-//         //   method: RequestMethod.GET,
-//         // },
-//         // {
-//         //   path: '/api/usuario',
-//         //   method: RequestMethod.POST,
-//         // },
-//         {
-//           path: '/api/usuario/login',
-//           method: RequestMethod.POST,
-//         },
-//       )
-//       .forRoutes('');
-//   }
-// }
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(AuthMiddleware)
+      .exclude(
+        // {
+        //   path: '/api/usuario/teste',
+        //   method: RequestMethod.GET,
+        // },
+        {
+          path: '/api/usuario',
+          method: RequestMethod.POST,
+        },
+        {
+          path: '/api/usuario/login',
+          method: RequestMethod.POST,
+        },
+      )
+      .forRoutes('');
+  }
+}

@@ -1,14 +1,13 @@
 import { EmpresaService } from '../services/empresa.service';
 import { CreateEmpresaDto } from '../dto/create-empresa.dto';
 import { UpdateEmpresaDto } from '../dto/update-empresa.dto';
-import { DtoHelperService } from 'src/empresa/dto/dto-helper.service';
+import { IEmpresa } from '../empresa.interface';
 export declare class EmpresaController {
     private readonly empresaService;
-    private dtoHelperService;
-    constructor(empresaService: EmpresaService, dtoHelperService: DtoHelperService);
-    create(createEmpresaDto: CreateEmpresaDto): Promise<void>;
-    findAll(): Promise<import("../entities/empresa.entity").Empresa[]>;
-    findOne(id: string): string;
-    update(id: string, updateProdutoDto: UpdateEmpresaDto): string;
-    remove(id: string): string;
+    constructor(empresaService: EmpresaService);
+    create(createEmpresaDto: CreateEmpresaDto): Promise<import("../entities/empresa.entity").Empresa>;
+    findAll(): Promise<IEmpresa[]>;
+    findOne(id: string): Promise<import("../entities/empresa.entity").Empresa>;
+    update(id: string, updateProdutoDto: UpdateEmpresaDto): Promise<import("../entities/empresa.entity").Empresa>;
+    remove(id: string): Promise<import("../entities/empresa.entity").Empresa>;
 }
