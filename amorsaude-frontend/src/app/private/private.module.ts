@@ -11,6 +11,7 @@ import { EmpresaComponent } from './components/empresa/empresa.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider'
 import { FormsModule } from '@angular/forms';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 @NgModule({
 //declarations: [MenuComponent],
   imports: [
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
   ],
 declarations: [
   MenuComponent,
-  EmpresaComponent
+  EmpresaComponent,
+  UsuariosComponent
 ]
 })
 export class PrivateModule { }
