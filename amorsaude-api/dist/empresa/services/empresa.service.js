@@ -24,8 +24,8 @@ let EmpresaService = class EmpresaService {
     async create(empresa) {
         await this.empresaRepository.save(this.empresaRepository.create(empresa));
     }
-    findAll() {
-        return this.empresaRepository.find();
+    async findAll() {
+        return await this.empresaRepository.find();
     }
     findOne(id) {
         return `This action returns a #${id} produto`;

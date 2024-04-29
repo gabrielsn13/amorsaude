@@ -1,9 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { UpdateEmpresaDto } from '../dto/update-empresa.dto';
 import { Repository } from 'typeorm';
 import { Empresa } from '../entities/empresa.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { IEmpresa } from '../empresa.interface';
+import { CreateEmpresaDto } from '../dto/create-empresa.dto';
 
 @Injectable()
 export class EmpresaService {
@@ -13,23 +14,38 @@ export class EmpresaService {
   ){
   }
 
-  async create(empresa: IEmpresa) {
-    await this.empresaRepository.save(this.empresaRepository.create(empresa));
+  async create(createEmpresaDto: IEmpresa) {
+    const empresa = this.empresaRepository.create(createEmpresaDto);
+
+    return await this.empresaRepository.save(empresa);
   }
 
-  findAll() {
-    return this.empresaRepository.find();
+  async findAll(): Promise<IEmpresa[]> {
+    return await this.empresaRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} produto`;
+  async findOne(id: number) {
+    return await this.empresaRepository.findOne({ where: { id }});
   }
 
-  update(id: number, empresa: IEmpresa) {
-    return `This action updates a #${id} produto`;
+  async update(id: number, empresa: IEmpresa) {
+    const emp = await this.findOne(id)
+
+    if(!emp){
+      throw new NotFoundException();
+    }
+
+    Object.assign(emp, empresa);
+    return await this.empresaRepository.save(emp);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} produto`;
+  async remove(id: number) {
+    const emp = await this.findOne(id)
+
+    if(!emp){
+      throw new NotFoundException();
+    }
+
+    return await this.empresaRepository.remove(emp);
   }
 }
