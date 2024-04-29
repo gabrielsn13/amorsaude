@@ -38,6 +38,7 @@ export class EmpresaComponent {
     if (this.empresaSelecionada.id !== undefined) {
       await this.empresaService.atualizarEmpresa(this.empresaSelecionada);
     } else {
+      console.log('update', this.empresaSelecionada);
       await this.empresaService.cadastrarEmpresa(this.empresaSelecionada);
     }
     this.empresaSelecionada = new Empresa();

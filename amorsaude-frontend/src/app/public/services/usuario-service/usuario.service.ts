@@ -25,7 +25,7 @@ export class UsuarioService {
 
   login(usuario: IUsuario): Observable<ILoginResponse>{
     return this.httpClient.post<ILoginResponse>('http://localhost:3000/api/usuario/login', usuario).pipe(
-      tap((res: ILoginResponse) => window.localStorage.setItem(LOCALSTORAGE_KEY_NESTJS_AMORSAUDE_APP, res.access_token)),
+      tap((res: ILoginResponse) => localStorage.setItem(LOCALSTORAGE_KEY_NESTJS_AMORSAUDE_APP, res.access_token)),
       tap(() => this.snackbar.open('Sucesso Login!', 'Close', snackBarConfig)),
       catchError(e => {
         this.snackbar.open(`${e.error.message}`, 'Close', snackBarConfig);

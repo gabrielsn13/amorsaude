@@ -11,7 +11,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 export const LOCALSTORAGE_KEY_NESTJS_AMORSAUDE_APP = 'amorsaude_app_token';
 
 export function tokenGetter(){
-  return window.localStorage.getItem(LOCALSTORAGE_KEY_NESTJS_AMORSAUDE_APP);
+  return localStorage.getItem(LOCALSTORAGE_KEY_NESTJS_AMORSAUDE_APP);
 }
 
 @NgModule({
