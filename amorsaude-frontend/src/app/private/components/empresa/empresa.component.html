@@ -1,66 +1,70 @@
 <h1 class="h1">Empresas</h1>
 <div class="row products">
-  <div class="col">
-  <table mat-table fxFlex="100%" fxFlex.gt-sm="66%" [dataSource]="dataSource" class="mat-elevation-z1">
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> id</th>
-      <td mat-cell *matCellDef="let empresa"> {{empresa.id}}</td>
-    </ng-container>
-    <ng-container matColumnDef="razaoSocial">
-      <th mat-header-cell *matHeaderCellDef> razaoSocial</th>
-      <td mat-cell *matCellDef="let empresa"> {{empresa.razaoSocial}}</td>
-    </ng-container>
-    <ng-container matColumnDef="nomeFantasia">
-      <th mat-header-cell *matHeaderCellDef> nomeFantasia</th>
-      <td mat-cell *matCellDef="let empresa"> {{empresa.nomeFantasia}}</td>
-    </ng-container>
-    <ng-container matColumnDef="cnpj">
-      <th mat-header-cell *matHeaderCellDef> cnpj</th>
-      <td mat-cell *matCellDef="let empresa"> {{empresa.cnpj}}</td>
-    </ng-container>
-    <ng-container matColumnDef="regional">
-      <th mat-header-cell *matHeaderCellDef> regional</th>
-      <td mat-cell *matCellDef="let empresa"> {{empresa.regional}}</td>
-    </ng-container>
-    <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let empresa">
-        <button mat-icon-button (click)="editar(empresa)">
-          <mat-icon>edit</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let empresa">
-        <button mat-icon-button (click)="deletar(empresa)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <table>
+    <td style="width: 80vw;">
+      <table mat-table fxFlex="100%" fxFlex.gt-sm="66%" [dataSource]="dataSource" class="mat-elevation-z1">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> id</th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="razaoSocial">
+          <th mat-header-cell *matHeaderCellDef> razaoSocial</th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.razaoSocial}}</td>
+        </ng-container>
+        <ng-container matColumnDef="nomeFantasia">
+          <th mat-header-cell *matHeaderCellDef> nomeFantasia</th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.nomeFantasia}}</td>
+        </ng-container>
+        <ng-container matColumnDef="cnpj">
+          <th mat-header-cell *matHeaderCellDef> cnpj</th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.cnpj}}</td>
+        </ng-container>
+        <ng-container matColumnDef="regional">
+          <th mat-header-cell *matHeaderCellDef> regional</th>
+          <td mat-cell *matCellDef="let empresa"> {{empresa.regional}}</td>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let empresa">
+            <button mat-icon-button (click)="editar(empresa)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let empresa">
+            <button mat-icon-button (click)="deletar(empresa)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </td>
+    <td style="width: 20vw;">
+      <h2>Empresas</h2>
+      <label>Razao Social
+        <input type="text" [(ngModel)]="empresaSelecionada.razaoSocial">
+      </label>
+      <label>Nome Fantasia
+        <input type="text" [(ngModel)]="empresaSelecionada.nomeFantasia">
+      </label>
+      <label>CNPJ
+        <input type="text" [(ngModel)]="empresaSelecionada.cnpj">
+      </label>
+      <label>Regional
+        <input type="number" [(ngModel)]="empresaSelecionada.regional">
+      </label>
+      <button mat-flat-button color="primary"
+        (click)="update()">{{(empresaSelecionada.id!==undefined)?'Update':'Salvar'}}</button>
+      <button mat-flat-button color="primary" (click)="Limpar()">Limpar</button>
+    </td>
   </table>
-</div>
+
   <mat-divider [vertical]="true"></mat-divider>
-  <div class="col">
-    <h2>Empresas</h2>
-    <label>Razao Social
-      <input type="text" [(ngModel)]="empresaSelecionada.razaoSocial">
-    </label>
-    <label>Nome Fantasia
-      <input type="text" [(ngModel)]="empresaSelecionada.nomeFantasia">
-    </label>
-    <label>CNPJ
-      <input type="text" [(ngModel)]="empresaSelecionada.cnpj">
-    </label>
-    <label>Regional
-      <input type="number" [(ngModel)]="empresaSelecionada.regional">
-    </label>
-    <button mat-flat-button color="primary" (click)="update()">{{(empresaSelecionada.id!==undefined)?'Update':'Salvar'}}</button>
-    <button mat-flat-button color="primary" (click)="Limpar()">Limpar</button>
-  </div>
+
   <div class="loading" *ngIf="loading">
     <mat-spinner></mat-spinner>
   </div>
-</div>
