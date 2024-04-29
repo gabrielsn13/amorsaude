@@ -4,6 +4,10 @@ import { EmpresaService } from '../../services/empresa.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { IEmpresa } from '../../../public/public.interface';
 
+interface Regiao {
+  value: number;
+  label: string;
+}
 @Component({
   selector: 'app-empresa',
   templateUrl: './empresa.component.html',
@@ -57,4 +61,23 @@ export class EmpresaComponent {
     // }
     await this.refresh();
   }
+
+  regioes: Regiao[] = [
+  { value: 1, label: 'Alto tietê' },
+  { value: 2, label: 'Interior' },
+  { value: 3, label: 'ES' },
+  { value: 4, label: 'SP Interior' },
+  { value: 5, label: 'SP' },
+  { value: 6, label: 'SP2' },
+  { value: 7, label: 'MG' },
+  { value: 8, label: 'Nacional' },
+  { value: 9, label: 'SP CAV' },
+  { value: 10, label: 'RJ' },
+  { value: 11, label: 'SP2' },
+  { value: 12, label: 'SP1' },
+  { value: 13, label: 'NE1' },
+  { value: 14, label: 'NE2' },
+  { value: 15, label: 'SUL' },
+  { value: 16, label: 'Norte' }
+  ];
 }

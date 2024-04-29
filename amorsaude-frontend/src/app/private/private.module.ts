@@ -12,6 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider'
 import { FormsModule } from '@angular/forms';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { MatOption } from '@angular/material/core';
 @NgModule({
 //declarations: [MenuComponent],
   imports: [
@@ -24,6 +25,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     MatTableModule,
     MatProgressSpinnerModule,
     MatDividerModule,
+    MatOption,
     FormsModule
   ],
 declarations: [

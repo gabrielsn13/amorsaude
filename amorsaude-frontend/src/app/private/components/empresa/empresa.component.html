@@ -1,4 +1,4 @@
-<h1 class="h1">Empresas</h1>
+<h1 class="h1">Usuario Empresas</h1>
 <div class="row products">
   <table>
     <td style="width: 80vw;">
@@ -54,8 +54,13 @@
       <label>CNPJ
         <input type="text" [(ngModel)]="empresaSelecionada.cnpj">
       </label>
-      <label>Regional
-        <input type="number" [(ngModel)]="empresaSelecionada.regional">
+      <label>Regional </label>
+      <label>
+        <!-- <input type="number" [(ngModel)]="empresaSelecionada.regional"> -->
+        <select [(ngModel)]="empresaSelecionada.regional">
+          <option [ngValue]="null" disabled>Selecione Região</option>
+          <option *ngFor="let regiao of regioes" [ngValue]="regiao.value">{{regiao.label}}</option>
+        </select>
       </label>
       <button mat-flat-button color="primary"
         (click)="update()">{{(empresaSelecionada.id!==undefined)?'Update':'Salvar'}}</button>
