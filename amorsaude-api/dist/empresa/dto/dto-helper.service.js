@@ -10,6 +10,7 @@ exports.DtoHelperService = void 0;
 const common_1 = require("@nestjs/common");
 let DtoHelperService = class DtoHelperService {
     createEmpresaDtoToEntity(createProdutoDto) {
+        console.log('teste cadastrar empresa', createProdutoDto);
         return {
             razaoSocial: createProdutoDto.razaoSocial,
             nomeFantasia: createProdutoDto.nomeFantasia,

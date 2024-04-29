@@ -6,6 +6,7 @@ import { CreateEmpresaDto } from "./create-empresa.dto";
 export class DtoHelperService {
 
     createEmpresaDtoToEntity(createProdutoDto: CreateEmpresaDto): IEmpresa{
+        console.log('teste cadastrar empresa', createProdutoDto);
         return {
             razaoSocial: createProdutoDto.razaoSocial,
             nomeFantasia: createProdutoDto.nomeFantasia,

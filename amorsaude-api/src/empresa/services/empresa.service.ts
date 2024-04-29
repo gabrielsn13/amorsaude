@@ -13,12 +13,12 @@ export class EmpresaService {
   ){
   }
 
-  create(empresa: IEmpresa) {
-    return 'This action adds a new produto';
+  async create(empresa: IEmpresa) {
+    await this.empresaRepository.save(this.empresaRepository.create(empresa));
   }
 
   findAll() {
-    return this.empresaRepository.find({});
+    return this.empresaRepository.find();
   }
 
   findOne(id: number) {

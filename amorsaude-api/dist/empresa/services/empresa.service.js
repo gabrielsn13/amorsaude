@@ -21,11 +21,11 @@ let EmpresaService = class EmpresaService {
     constructor(empresaRepository) {
         this.empresaRepository = empresaRepository;
     }
-    create(empresa) {
-        return 'This action adds a new produto';
+    async create(empresa) {
+        await this.empresaRepository.save(this.empresaRepository.create(empresa));
     }
     findAll() {
-        return this.empresaRepository.find({});
+        return this.empresaRepository.find();
     }
     findOne(id) {
         return `This action returns a #${id} produto`;

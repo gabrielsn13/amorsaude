@@ -1,5 +1,6 @@
 <h1 class="h1">Empresas</h1>
-<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="products">
+<div class="row products">
+  <div class="col">
   <table mat-table fxFlex="100%" fxFlex.gt-sm="66%" [dataSource]="dataSource" class="mat-elevation-z1">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> id</th>
@@ -40,8 +41,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-divider fxShow="false" fxShow.gt-sm [vertical]="true"></mat-divider>
-  <div>
+</div>
+  <mat-divider [vertical]="true"></mat-divider>
+  <div class="col">
     <h2>Empresas</h2>
     <label>Razao Social
       <input type="text" [(ngModel)]="empresaSelecionada.razaoSocial">
